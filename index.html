@@ -1,12 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Profile – Ream</title>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #12012e;
+    background-image:
+      radial-gradient(ellipse at 15% 25%, #3b0f6e55 0%, transparent 55%),
+      radial-gradient(ellipse at 85% 75%, #0f2b6e44 0%, transparent 55%);
+    font-family: 'DM Sans', sans-serif;
+    padding: 40px 20px;
+  }
+
+  .card {
+    background: #f3f1fc;
+    border-radius: 20px;
+    width: 460px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
+    animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(32px) scale(0.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  .card-header {
+    background: linear-gradient(135deg, #2b1870 0%, #1a3a9a 100%);
+    padding: 24px 30px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-header::after {
+    content: '';
+    position: absolute;
+    right: -30px; top: -30px;
+    width: 130px; height: 130px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.05);
+  }
+  .card-header::before {
+    content: '';
+    position: absolute;
+    right: 20px; bottom: -40px;
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.04);
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 14px;
+  }
+  .logo {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.14);
+    border: 1.5px solid rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+  .header-title {
+    font-family: 'Abril Fatface', serif;
+    color: #fff;
+    font-size: 1.55rem;
+    letter-spacing: 0.04em;
+    line-height: 1;
+  }
+  .header-title span { color: #f9c74f; }
+
+  .header-meta {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    background: rgba(255,255,255,0.13);
+    color: rgba(255,255,255,0.9);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 4px 12px;
+    text-transform: uppercase;
+  }
+  .chip.gold { background: #f9c74f22; color: #f9c74f; border-color: #f9c74f44; }
+
+  .card-body { padding: 28px 30px 30px; }
+
+  .section-label {
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9b8fc2;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, #c9c2e8, transparent);
+  }
+
+  .fields-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .fields-grid .full { grid-column: 1 / -1; }
+
+  .field { animation: fadeUp 0.5s ease both; }
+  .field:nth-child(1){animation-delay:0.08s}
+  .field:nth-child(2){animation-delay:0.14s}
+  .field:nth-child(3){animation-delay:0.20s}
+  .field:nth-child(4){animation-delay:0.26s}
+  .field:nth-child(5){animation-delay:0.32s}
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .field-label {
+    font-size: 0.67rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #8879b8;
+    margin-bottom: 5px;
+  }
+  .field-value {
+    font-size: 0.95rem;
+    color: #1a0533;
+    font-weight: 400;
+    padding: 9px 13px;
+    background: white;
+    border-radius: 8px;
+    border: 1.5px solid #ddd8f5;
+    border-bottom: 2.5px solid #4c2fa0;
+    min-height: 40px;
+    line-height: 1.5;
+  }
+  .field-value.accent { color: #2b1870; font-weight: 600; font-size: 1.05rem; }
+
+  .divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, #c9c2e8 40%, transparent);
+    margin: 20px 0;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+  .tag {
+    background: #ede9ff;
+    color: #3b1d8f;
+    border: 1px solid #c9bfff;
+    border-radius: 6px;
+    font-size: 0.76rem;
+    font-weight: 500;
+    padding: 4px 10px;
+  }
+
+  .holidays { display: flex; flex-wrap: wrap; gap: 7px; }
+  .hol-item {
+    background: white;
+    border: 1.5px solid #ddd8f5;
+    border-bottom: 2.5px solid #4c2fa0;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    color: #1a0533;
+    padding: 6px 12px;
+  }
+
+  .card-footer {
+    background: linear-gradient(135deg, #2b1870 0%, #1a3a9a 100%);
+    padding: 14px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4px;
+  }
+  .footer-text {
+    font-size: 0.72rem;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.04em;
+  }
+  .footer-url {
+    font-size: 0.76rem;
+    color: #f9c74f;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+</style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    
+<div class="card">
+
+  <div class="card-header">
+    <div class="header-top">
+      <div class="logo">💻</div>
+      <div>
+        <div class="header-title"><span>COMPANY</span>PROFILE</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="chip">Est. 2022</span>
+      <span class="chip gold">Web Development</span>
+      <span class="chip">Phnom Penh, KH</span>
+    </div>
+  </div>
+
+  <div class="card-body">
+
+    <div class="section-label">Basic Information</div>
+    <div class="fields-grid">
+      <div class="field full">
+        <div class="field-label">Company Name</div>
+        <div class="field-value accent">Ream Digital Solutions</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Location</div>
+        <div class="field-value">Phnom Penh, Cambodia</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Type of Business</div>
+        <div class="field-value">Web Development</div>
+      </div>
+      <div class="field">
+        <div class="field-label">Founded</div>
+        <div class="field-value">2022</div>
+      </div>
+      <div class="field">
+        <div class="field-label">No. of Employees</div>
+        <div class="field-value">8 people</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label">Services Offered</div>
+    <div class="tags">
+      <span class="tag">Website Design</span>
+      <span class="tag">E-commerce</span>
+      <span class="tag">Mobile Apps</span>
+      <span class="tag">UI / UX Design</span>
+      <span class="tag">SEO &amp; Hosting</span>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label">Growth &amp; Plans</div>
+    <div class="fields-grid">
+      <div class="field full">
+        <div class="field-label">Future Plans</div>
+        <div class="field-value">Grow the team to 20 employees, launch a software product for local Cambodian businesses, and open a second office in Siem Reap by 2026.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label">Holidays &amp; Benefits</div>
+    <div class="holidays">
+      <div class="hol-item">🎉 Khmer New Year (3 days)</div>
+      <div class="hol-item">🎊 Pchum Ben (3 days)</div>
+      <div class="hol-item">🌙 Water Festival (3 days)</div>
+      <div class="hol-item">📅 15 days annual leave</div>
+      <div class="hol-item">🏥 Health insurance</div>
+    </div>
+
+  </div>
+
+  <div class="card-footer">
+    <span class="footer-text">© 2025 Ream Digital Solutions</span>
+    <span class="footer-url">www.reamdigital.com</span>
+  </div>
+
+</div>
 </body>
 </html>
