@@ -34,6 +34,7 @@ class Student:
     
     def greet(self):
         print(f"Hi! I'm {self.name}, a {self.role}. Nice to meet you! 🚀")
+    ![Profile](https://github.com/user-attachments/assets/e48fc967-14b1-4ef0-ab03-a95c0d8cfeee)
 
 me = Student()
 me.greet()
