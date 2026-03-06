@@ -1,55 +1,39 @@
-# Hi there, I'm [Ream Khorn]! 👋
+Hi there, I'm Ream! 👋
 
-🌍 **Based in [Phno Penh, Cambodia]** | 💡 **Passionate about [your main passion, e.g. building innovative AI/web solutions]**
+🌍 Based in Phnom Penh, Cambodia | Student at PNC (Passerelles Numériques Cambodia)
 
-*Machine Learning | Data Scientist | [Your other skills, e.g. Dashboard Expert | Flutter | Web Developer | OpenAI]*
+*Student | Learning IT & Programming | Passionate about tech and coding*
 
-Welcome to my GitHub profile! I'm a passionate software developer with a love for creating seamless, user-friendly applications. I enjoy working on both frontend and backend technologies, and I'm always eager to learn and explore new tools and frameworks.
+Welcome to my GitHub profile! I'm a student excited about technology, building projects, and learning new things every day. I enjoy exploring programming and creating simple apps. Always happy to connect and learn together!
 
----
+### 🛠️ Technologies & Tools
+<!-- Change these to what you're actually learning! -->
+[![My Skills](https://skillicons.dev/icons?i=html,css,js,python,git,github,vscode&perline=7&theme=dark)](https://skillicons.dev)
 
-## 🛠️ **Technologies & Tools**
+(or add more icons like: react, flutter, java — go to https://skillicons.dev to make your own)
 
-<!-- You can add colorful icons here – copy this line from https://skillicons.dev -->
-<!-- Example: replace the ?i=... with your own tech stack -->
-[![My Skills](https://skillicons.dev/icons?i=js,ts,html,css,react,nodejs,python,django,flutter,git,github,vscode,openai&perline=8&theme=dark)](https://skillicons.dev)
+### 🌟 Let's Connect!
+Feel free to reach out — I'm open to chat about studies, projects, or tech!
 
-<!-- Or add individual icons manually like this: -->
-<!-- <img src="https://skillicons.dev/icons?i=python" width="48" /> <img src="https://skillicons.dev/icons?i=flutter" width="48" /> etc. -->
+- **Email**: [your.email@gmail.com]  
+- **Other links**: [Facebook / LinkedIn / Telegram if you have]  
 
----
+### 🎉 Fun Fact
+I love riding around the city and discovering new places! 🏍️😄
 
-## 🌟 **Let's Connect!**
-
-I'm always open to collaborating on interesting projects or discussing new ideas. Feel free to reach out to me!
-
-- **LinkedIn**: [Your LinkedIn URL, e.g. https://www.linkedin.com/in/yourname]  
-- **Email**: [your.email@example.com]  
-- **Portfolio**: [https://yourportfolio.com or https://yourname.github.io]  
-- **Other links**: add more if you want (Twitter/X, website, etc.)
-
----
-
-## 🎉 **Fun Fact**
-
-I once wrote a script that automated my morning coffee routine! ☕🤖
-
-<!-- Change this to your own fun fact! -->
-
----
+Here's a little intro in code:
 
 ```python
-#!/usr/bin/python
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-class SoftwareEngineer:
+class Student:
     def __init__(self):
-        self.name = "[Your Name]"           # ← Change to your name
-        self.role = "Passionate [Your Role]" # ← e.g. AI | Software Engineer
-        self.language_spoken = ["en_US"]     # ← add your languages if you want
+        self.name = "Ream"
+        self.role = "Student at PNC"
+    
+    def greet(self):
+        print(f"Hi! I'm {self.name}, a {self.role}. Nice to meet you! 🚀")
 
-    def say_hi(self):
-        print("Thanks for dropping by, hope you find some of my work interesting! 🚀")
-
-me = SoftwareEngineer()
-me.say_hi()
+me = Student()
+me.greet()
